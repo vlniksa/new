@@ -1,4 +1,4 @@
-package Calc;
+
 import java.util.Scanner;
 
 public class calc {
@@ -7,6 +7,8 @@ public class calc {
 		//StringBuilder virazhenie = new StringBuilder("VIII / VIII");
 		String inputstring;
 		StringBuilder virazhenie = new StringBuilder("");
+		String vir="" ;
+		String [] words;
 		String strspace = " "; 
 		String ourstring ;
 		int edenitsi=0;
@@ -30,12 +32,24 @@ public class calc {
 		input.close();//закрываем портал
 		
 		virazhenie.append(inputstring); //копируем в  StringBuilder для возможности редактирования
-		
+		vir=virazhenie.toString();
 		lenvir=virazhenie.length(); //размер (длина) строки
-		if (lenvir<5){
+		indSpace=virazhenie.indexOf(strspace);
+		
+		/*if (lenvir<5 || indSpace<1 ){
 			System.out.println("Неверный формат ввода данных или строка не является математической операцией" );
 			return;
 		}
+		*/
+		words=vir.split(" ");
+		//System.out.println(words.length);
+		if ( words.length!=3) {
+			return;
+		}
+		for (byte i=0; i<words.length; i++) {
+			System.out.println(words[i]);
+		}
+		
 		
 		indSpace=virazhenie.indexOf(strspace); //ищем позицию пробела
 		ourstring=virazhenie.substring(0, indSpace); //выбираем из строки первый операнд
